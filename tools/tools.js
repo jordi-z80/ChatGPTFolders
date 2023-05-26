@@ -58,7 +58,6 @@ class GTools
 		return observer;
 	}
 
-
 	// Returns true if the element has been collapsed, false if it has been expanded
 	static toggleCollapse (element) 
 	{
@@ -70,7 +69,16 @@ class GTools
 			element.style.height = "0px";
 
 			setTimeout(function () 
-			{ 
+			{
+				element.style.transition = "height 0.2s";
+				element.style.height = height;
+			}, 0);
+
+			// Clean up after the transition is done
+			element.addEventListener('transitionend', function cleanup() 
+			{
+				element.style.transition = "";
+				element.style.height = "auto";
 				element.removeEventListener('transitionend', cleanup);
 			});
 
@@ -88,17 +96,15 @@ class GTools
 			}, 0);
 
 			// Clean up after the transition is done
-			element.addEventListener('transitionend', cleanup);
+			element.addEventListener('transitionend', function cleanup() 
+			{
+				element.style.transition = "";
+				element.style.height = "0px";
+				element.removeEventListener('transitionend', cleanup);
+			});
 
 			return true;
 		}
-		
-		function cleanup() 
-		{
-			element.style.transition = "";
-			element.style.height = "0px";
-			element.removeEventListener('transitionend', cleanup);
-		}		
 	}
 
 }

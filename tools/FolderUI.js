@@ -275,7 +275,6 @@ function displayDirectoryItemChat (chat, innerOL, level)
 
 function addDragHandlers (element)
 {
-	console.log ("Adding drag handlers to ",element);
 	element.addEventListener (("dragstart"), function (event)
 	{
 		event.dataTransfer.setData ("text/plain", element.getAttribute (Constants.DraggableId));
