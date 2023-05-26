@@ -7,7 +7,7 @@ const Constants = (function()
 	{
 		DraggableId: "data-draggable-id",
 		FolderOffset: 10,
-		DEBUG: true,
+		DEBUG: false,
 		AddFolder : "images/folder-plus.svg",
 		OpenFolder : "images/folder2-open.svg",
 		ClosedFolder : "images/folder.svg",
