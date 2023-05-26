@@ -1,0 +1,91 @@
+
+#newFolderButton 
+{
+	background-color: aqua;
+}
+
+.jtoolbar 
+{
+    display: flex;
+	flex-direction: row;
+	align-items:center;
+    padding: 4px;
+    background-color: transparent;
+    border-radius: 6px;
+    width: auto;
+    height: 36px;
+}
+
+.jtoolbar-icon 
+{
+    cursor: pointer;
+	margin-right: 4px;
+}
+
+
+/* CSS for the folders on the left */
+
+.mygray
+{
+	background-color: hotpink;
+}
+
+.container 
+{
+	border-radius: 0px;
+	background-color: #202123;
+	padding: 6px;
+	transition: background-color 0.2s ease;
+}
+
+.container:hover 
+{
+	background-color: #0000bf;
+}
+
+.flex-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+.flex-item-image
+{
+	margin: 0 4px;
+}
+
+.flex-item-text
+{
+	margin: 0 4px;
+	flex-grow: 1;
+}
+
+
+.hide 
+{
+	overflow: hidden;
+	max-height: 1000px; /* make sure this is larger than the actual height */
+	transition: max-height 0.1s ease-in-out;
+}
+
+.hide-collapsed 
+{
+	max-height: 0;
+}
+
+.contextMenuOption
+{
+	padding: 4px;
+}
+
+.contextMenuOption:hover
+{
+	background-color: gray;
+}
+  
+.dragOver
+{
+	background-color: #00bfbf;
+}
+
