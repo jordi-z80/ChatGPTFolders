@@ -22,6 +22,21 @@
 	margin-right: 4px;
 }
 
+#jtoolbar-search
+{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	padding: 4px;
+	margin: 12px;
+	background-color: transparent;
+	border-radius: 6px;
+	width: 120px;
+	height: 32px;
+	background-color: #202123;
+	color: lightgray;
+}
+
 
 /* CSS for the folders on the left */
 

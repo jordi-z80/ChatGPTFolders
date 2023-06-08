@@ -124,6 +124,9 @@ let backendData = null;
 					
 					chat.setAttribute (Constants.DraggableId,"aiChat_"+found.id);
 					addDragHandlers (chat);
+
+					// To ease filtering the chat, add a class to it
+					chat.classList.add ("systemChat");
 				}
 			}
 
@@ -208,11 +211,46 @@ let backendData = null;
 
 			}
 
+			// create a text box
+			let textBox = document.createElement ("input");
+			textBox.setAttribute ("id","jtoolbar-search");
+			textBox.setAttribute ("type","text");
+			textBox.setAttribute ("placeholder","Search");
+			toolbar.appendChild(textBox);
+
+			textBox.addEventListener ("input", ()=>
+			{
+				filterChats (textBox.value);
+			});
+
+
 
 			// insert the toolbar
 			navElement.insertBefore (toolbar, navElement.children[0].nextSibling);
 
 			console.log ("Added ourNavBar :"+toolbar);
+		}
+
+		function filterChats(text)
+		{
+			text = text.toLowerCase();
+			let chats = document.querySelectorAll (".systemChat");
+
+			for (let chat of chats)
+			{
+				let chatTitle = chat.querySelector ("div").innerText;
+				if (chatTitle.toLowerCase().includes (text) || text == "")
+				{
+					// show
+					chat.style.display = "";
+				}
+				else
+				{
+					// hide
+					chat.style.display = "none";
+				}
+			}
+
 		}
 
 		function newFolderClickedEventHandler (event)
